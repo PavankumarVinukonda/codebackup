@@ -4,7 +4,7 @@ const app = express();
 //Import DB Connection File
 import "./utils/dbConnect.js";
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8085;
 
 app.use(express.json()); //json bodyparser
 
