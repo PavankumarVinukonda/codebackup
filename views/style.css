@@ -49,17 +49,10 @@ Version:	1.1
 	Global CSS 
 ===============================*/
 body {
-  height: 100%;
-  margin: 0;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #888;
-}
-body,
-html {
-  height: 100%;
-  margin: 0;
 }
 .pro-features {
   position: fixed;
@@ -599,10 +592,9 @@ html {
 =============================*/
 .slider .single-slider {
   height: 600px;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
 }
 .slider .single-slider .text {
   margin-top: 120px;
