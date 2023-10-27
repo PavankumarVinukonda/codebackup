@@ -2810,7 +2810,7 @@ body {
 .appointment .button .btn {
   font-weight: 500;
   margin-top: 6%;
-  margin-bottom: 4%;
+  margin-bottom: 70px;
 }
 .appointment .button .btn:hover {
   color: #fff;
