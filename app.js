@@ -17,7 +17,6 @@ app.use(express.static("views")); //HomeRouter
 
 app.post("/", async (req, res) => {
   try {
-    console.log(req.body);
     let userData = await Users.findOne({ email: req.body.email });
     if (userData) {
       return res.send(

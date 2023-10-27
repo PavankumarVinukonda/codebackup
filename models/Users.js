@@ -28,6 +28,6 @@ const expertSchema = new mongoose.Schema({
   },
 });
 
-const Users = new mongoose.model("Users", expertSchema, "Users");
+const Users = new mongoose.model("Users", expertSchema, "users");
 
 export default Users;
