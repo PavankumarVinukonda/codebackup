@@ -1136,6 +1136,8 @@ body {
 ============================*/
 .portfolio {
   background: #fdfdfd;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .portfolio .single-pf {
   position: relative;
@@ -1996,6 +1998,8 @@ body {
 =========================*/
 .blog {
   background: #fff;
+  padding-top: 0px;
+  padding-bottom: 70px;
 }
 .blog .blog-title {
   text-align: center;
