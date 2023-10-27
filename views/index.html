@@ -337,35 +337,66 @@
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="form-group">
-                    <input name="name" type="text" placeholder="Name" />
+                    <input
+                      name="fname"
+                      type="text"
+                      placeholder="Name"
+                      required
+                    />
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="form-group">
-                    <input name="email" type="email" placeholder="Email" />
+                    <input
+                      name="email"
+                      type="email"
+                      placeholder="Email"
+                      required
+                    />
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="form-group">
-                    <input name="phone" type="text" placeholder="Phone" />
+                    <input
+                      name="phone"
+                      type="text"
+                      placeholder="Phone"
+                      required
+                    />
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="form-group">
-                    <div class="nice-select form-control wide" tabindex="0">
+                    <div
+                      class="nice-select form-control wide"
+                      tabindex="0"
+                      id="degreeDropdown"
+                    >
                       <span class="current"
                         >Which Degree do you want to pursue?*</span
                       >
-                      <ul class="list">
+                      <ul class="list" name="degree">
                         <li data-value="1" class="option selected">Masters</li>
                         <li data-value="2" class="option">Bachelors</li>
                       </ul>
                     </div>
                   </div>
                 </div>
+                <!-- Hidden input for Dropdown 1 -->
+                <input
+                  type="hidden"
+                  id="selectedDegree"
+                  name="degree"
+                  value="1"
+                />
+
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="form-group">
-                    <div class="nice-select form-control wide" tabindex="0">
+                    <div
+                      class="nice-select form-control wide"
+                      tabindex="0"
+                      id="bachelorCompletionDropdown"
+                    >
                       <span class="current"
                         >Have you completed your Bachelor's?*
                       </span>
@@ -376,9 +407,21 @@
                     </div>
                   </div>
                 </div>
+                <!-- Hidden input for Dropdown 2 -->
+                <input
+                  type="hidden"
+                  id="bachelorCompletion"
+                  name="bachelordegree"
+                  value="1"
+                />
+
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="form-group">
-                    <div class="nice-select form-control wide" tabindex="0">
+                    <div
+                      class="nice-select form-control wide"
+                      tabindex="0"
+                      id="countryDropdown"
+                    >
                       <span class="current"
                         >Which country are you planning to study in?*
                       </span>
@@ -396,6 +439,14 @@
                     </div>
                   </div>
                 </div>
+                <!-- Hidden input for Dropdown 3 -->
+                <input
+                  type="hidden"
+                  id="selectedCountry"
+                  name="country"
+                  value="1"
+                />
+
                 <div class="col-lg-12 col-md-12 col-12">
                   <p>
                     By submitting this form, you agree to the Terms of Use and
@@ -692,6 +743,49 @@
       <!--/ End Copyright -->
     </footer>
     <!--/ End Footer Area -->
+
+    <!-- Send form dropdown data to backend -->
+    <script>
+      // JavaScript to handle user selections and update hidden inputs
+      const degreeDropdown = document.getElementById("degreeDropdown");
+      const selectedDegreeInput = document.getElementById("selectedDegree");
+
+      const bachelorCompletionDropdown = document.getElementById(
+        "bachelorCompletionDropdown"
+      );
+      const bachelorCompletionInput =
+        document.getElementById("bachelorCompletion");
+
+      const countryDropdown = document.getElementById("countryDropdown");
+      const selectedCountryInput = document.getElementById("selectedCountry");
+
+      degreeDropdown.addEventListener("click", function (e) {
+        if (e.target.classList.contains("option")) {
+          const selectedDegreeText = e.target.textContent;
+          selectedDegreeInput.value = selectedDegreeText;
+          degreeDropdown.querySelector(".current").textContent =
+            selectedDegreeText;
+        }
+      });
+
+      bachelorCompletionDropdown.addEventListener("click", function (e) {
+        if (e.target.classList.contains("option")) {
+          const completionStatusText = e.target.textContent;
+          bachelorCompletionInput.value = completionStatusText;
+          bachelorCompletionDropdown.querySelector(".current").textContent =
+            completionStatusText;
+        }
+      });
+
+      countryDropdown.addEventListener("click", function (e) {
+        if (e.target.classList.contains("option")) {
+          const selectedCountryText = e.target.textContent;
+          selectedCountryInput.value = selectedCountryText;
+          countryDropdown.querySelector(".current").textContent =
+            selectedCountryText;
+        }
+      });
+    </script>
 
     <!-- jquery Min JS -->
     <script src="js/jquery.min.js"></script>

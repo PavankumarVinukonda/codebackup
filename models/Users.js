@@ -19,7 +19,7 @@ const expertSchema = new mongoose.Schema({
     required: true,
   },
   bachelordegree: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   country: {
