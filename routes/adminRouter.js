@@ -45,4 +45,5 @@ router.post("/", async (req, res) => {
 
 router.use("/dashboard", verifyAuth, express.static("admin/dashboard"));
 
+
 export default router;
