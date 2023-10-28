@@ -1,5 +1,6 @@
 import express from "express";
 import Admin from "../models/Admin.js";
+import Users from "../models/Users.js";
 const router = express.Router();
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -66,6 +67,17 @@ router.get("/logout", (req, res) => {
     }
 });
 
+
+//get all the applications
+router.get("/applications", verifyAuth, async (req, res) => {
+    try {
+        const applications = await Users.find({}, "-__v");
+        res.json(applications);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("Something Went Wrong");
+    }
+});
 
 
 export default router;
