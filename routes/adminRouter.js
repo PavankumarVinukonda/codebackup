@@ -45,5 +45,27 @@ router.post("/", async (req, res) => {
 
 router.use("/dashboard", verifyAuth, express.static("admin/dashboard"));
 
+/*
+  API : Logout
+
+*/
+
+router.get("/logout", (req, res) => {
+    try {
+        let cookie = req.cookies;
+        for (var prop in cookie) {
+            if (!cookie.hasOwnProperty(prop)) {
+                continue;
+            }
+            res.cookie(prop, '', { expires: new Date(0) });
+        }
+        res.redirect('/admin');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+
 
 export default router;
